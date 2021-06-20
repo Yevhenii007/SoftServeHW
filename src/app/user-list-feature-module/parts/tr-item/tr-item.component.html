@@ -1,0 +1,9 @@
+<th class="">{{ indexUserElement + 1 }}</th>
+<td class="col-3 overflow-auto">{{ user.firstName }}</td>
+<td class="col-3 overflow-auto">{{ user.lastName }}</td>
+<td class="col-3 overflow-auto">{{ user.email }}</td>
+<td class="col overflow-auto">{{ user.age }}</td>
+<td class="col"><input (click)="editUser(user)" type="button" class="btn btn-warning" value="Edit"></td>
+<td class="col"><input (click)="deleteUser(user)" type="button" class="btn btn-danger" value="Delete"></td>
+
+<app-modal></app-modal>

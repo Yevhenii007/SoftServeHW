@@ -1,0 +1,49 @@
+<div [ngClass]="isShownModal ? 'show' : ''" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">{{modalAttributes.title}}</h4>
+        <input (click)="hideModal()" class="btn-close me-1" type="button" aria-label="Close">
+      </div>
+      <div class="modal-body">
+        <div class="col">
+          <form (ngSubmit)="updateUser()" class="needs-validation">
+            <div class="form-group">
+              <label for="firstname-input">Name</label>
+              <input [(ngModel)]="firstnameValue" #name="ngModel" id="name" name="name" class="form-control" type="text"
+                placeholder="Enter firstname" required minlength="4">
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+
+                <div *ngIf="name.errors?.required">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors?.minlength">
+                  Name must be at least 4 characters long.
+                </div>
+
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <label for="lastname-input">Surname</label>
+              <input [(ngModel)]="lastnameValue" name="lastnameValue" id="lastname-input" class="form-control"
+                type="text" placeholder="Enter lastname">
+            </div>
+            <div class="form-group mt-3">
+              <label for="email-input">Email address</label>
+              <input [(ngModel)]="emailValue" name="emailValue" id="email-input" class="form-control" type="email"
+                placeholder="Enter email">
+            </div>
+            <div class="form-group mt-3">
+              <label for="age-input">Age</label>
+              <input [(ngModel)]="ageValue" name="ageValue" id="age-input" class="form-control" type="number"
+                placeholder="Enter age">
+            </div>
+            <input [class]="['btn', 'mt-3', 'me-2', modalAttributes.btnClass]" type="submit"
+              [value]="modalAttributes.btnValue">
+            <input (click)="hideModal()" class="btn btn-secondary mt-3" type="button" value="Close">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
